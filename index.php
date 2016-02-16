@@ -10,6 +10,8 @@ $app->setDb($db);
 
 $login = new Login();
 
+$login->createUser("admin", "admin", 999); // create a default admin
+
 $posts = new Posts();
 $posts->setDb($db);
 

@@ -18,7 +18,7 @@ class Rout {
 
 	public $baseurl = "/news"; // has to be set manually if using on a subdir
 
-	protected $db;
+	public $db;
 
 	public function setDb($db) {
 
@@ -109,7 +109,7 @@ class Rout {
 
 
 	public function post($req, $f) {
-		
+
 		if($_SERVER["REQUEST_METHOD"] === "POST") {
 
 			$aReq = $_SERVER["REQUEST_URI"];
