@@ -109,7 +109,7 @@ class Rout {
 
 			if($aReq === $curl) {
 
-				return $f();
+				return $f($_POST);
 
 			} else {
 
