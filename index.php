@@ -6,6 +6,7 @@ require("lib/main.php");
 require "lib/db.php";
 
 $app = new Rout();
+$app->setDb($db);
 
 $login = new Login();
 

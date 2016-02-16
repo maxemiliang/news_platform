@@ -18,6 +18,13 @@ class Rout {
 
 	public $baseurl = "/news"; // has to be set manually if using on a subdir
 
+	protected $db;
+
+	public function setDb($db) {
+
+		$this->db = $db;
+
+	}
 
 	public function error($e) {
 

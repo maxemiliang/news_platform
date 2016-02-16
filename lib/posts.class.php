@@ -16,6 +16,7 @@ This is the class that handles the posts like getting them and adding them
 class Posts extends Login {
 
 	public $posts;
+	/* Unnecesary but wont delete it just yet!
 	protected $db;
 
 	public function setDb($db) {
@@ -23,6 +24,7 @@ class Posts extends Login {
 		$this->db = $db;
 
 	}
+	*/
 
 
 	public function addPost($post) { // $post should be an array consisting of title, text, img and userID

@@ -28,7 +28,7 @@ Class Login extends Rout {
 	}
 
 
-	public function login() {
+	public function tryLogin() {
 
 		
 		
