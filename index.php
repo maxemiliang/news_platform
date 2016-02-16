@@ -39,7 +39,22 @@ $app->get("/post/:id", function($id) use($app, $posts) {
 
 });
 
-$app->post("/add/post", function() use ($app, $posts, $login){
+$app->get("/post", function() use ($app, $login) {
+
+	$app->render("add.php");
+
+});
+
+$app->post("/post/add", function() use ($app, $posts, $login){
+
+	$cont = [];
+
+	$cont[] = $_POST["title"];
+	$cont[] = $_POST["text"];
+	$cont[] = "default.jpg";
+	$cont[] = $login->getUserId();
+
+	$posts->addPost($cont);
 
 });
 
@@ -48,7 +63,7 @@ $app->post("/add/post", function() use ($app, $posts, $login){
 
 $app->get("/news/redir", function() use ($app){
 
-	$app->redirect("/news/news");
+	$app->redirect("/news");
 
 });
 
