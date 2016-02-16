@@ -1,6 +1,6 @@
 <?php
 
-require("lib/main.php");
+require "lib/main.php";
 
 // Database connection
 require "lib/db.php";
@@ -20,6 +20,7 @@ $app->get("/", function() use($app){
 
 });
 
+
 $app->get("/news", function() use($app, $posts){
 
     $post = [];
@@ -32,6 +33,7 @@ $app->get("/news", function() use($app, $posts){
 
 });
 
+
 $app->get("/post/:id", function($id) use($app, $posts) {
 
     $r = $posts->getPost($id);
@@ -40,11 +42,13 @@ $app->get("/post/:id", function($id) use($app, $posts) {
 
 });
 
+
 $app->get("/post", function() use ($app, $login) {
 
 	$app->render("add.php");
 
 });
+
 
 $app->post("/post/add", function() use ($app, $posts, $login){
 
@@ -56,6 +60,11 @@ $app->post("/post/add", function() use ($app, $posts, $login){
 	$cont[] = $login->getUserId();
 
 	$posts->addPost($cont);
+
+});
+
+
+$app->get("/login", function () use ($app, $login){
 
 });
 
