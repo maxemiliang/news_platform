@@ -16,6 +16,15 @@ Class Login extends Rout {
 
 	public function isLoggedIn() {
 
+		return True;
+
+	}
+
+
+	public function getUserId() {
+
+		return 1;
+
 	}
 
 }

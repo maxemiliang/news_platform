@@ -28,7 +28,7 @@ class Rout {
 
 	public function redirect($redir) {
 
-		header("location: {$redir}");
+		header("location: {$this->baseurl}{$redir}");
 
 	}
 

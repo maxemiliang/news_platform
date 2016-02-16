@@ -25,9 +25,24 @@ class Posts extends Login {
 	}
 
 
-	public function addPosts($post) {
+	public function addPost($post) { // $post should be an array consisting of title, text, img and userID
 
-		
+		if ($this->isLoggedIn()) {
+
+			$sql = "INSERT INTO articles (title, text, img, userID, date) VALUES (?, ?, ?, ?, NOW());";
+
+			$sth = $this->db->prepare($sql);
+
+			$sth->execute($post);
+
+		} else {
+
+			echo "User most be logged in!";
+			http_response_code(403);
+
+		}
+
+		$this->redirect("/post");
 
 	}
 
