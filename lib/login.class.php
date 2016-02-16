@@ -1,0 +1,19 @@
+<?php 
+
+/*
+
+This is the login controller, which suprise suprise, handles logins
+
+@DEPENDENCIES
+-----------------------
+-DB.PHP;- 
+-Controller.class.php;-
+-----------------------
+
+*/
+
+Class Login extends Rout {
+
+	
+
+}
