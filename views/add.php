@@ -4,10 +4,17 @@
 
 ?>
 <div class="container">
+<?php 
+
+if (isset($_SESSION["redir"])) {
+	echo "<p style='color:red'>{$_SESSION['redir']}</p>";
+}
+
+?>
 	<form action="<?php echo $base ?>/post/add" method="post">
 	  <div class="form-group">
-	    <label for="InputText">Titeln</label>
-	    <input type="text" name="title" class="form-control" id="InputText" placeholder="Titeln" required>
+	    <label for="InputTitle">Titeln</label>
+	    <input type="text" name="title" class="form-control" id="InputTitle" placeholder="Titeln" required>
 	  </div>
 	  <div class="form-group">
 	    <label for="InputText">Texten</label>

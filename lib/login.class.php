@@ -16,7 +16,11 @@ Class Login extends Rout {
 
 	public function isLoggedIn() {
 
-		return True;
+		if (isset($_SESSION["userID"])) {
+			return true;
+		} else {
+			return false;
+		}
 
 	}
 

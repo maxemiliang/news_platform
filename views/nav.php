@@ -17,8 +17,20 @@
             <li><a href="#contact">Contact</a></li> -->
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo $base ?>/post">Lägg till en ny post</a></li>
-            <li><a href="<?php echo $base ?>/login">Logga In</a></li>
+            <?php if (isset($_SESSION["userID"])) { ?><li><a href="<?php echo $base ?>/post">Lägg till en ny post</a></li> <?php } else { ?>
+            <li><form class="navbar-form">
+              <div class="form-group">
+                <label class="sr-only" for="username">Användarnamn</label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Användarnamn">
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="password">Lösenord</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Lösenord">
+              </div>
+              <button type="submit" class="btn btn-default">Logga in</button>
+            </form>
+            </li>
+            <?php } ?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

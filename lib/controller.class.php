@@ -33,7 +33,9 @@ class Rout {
 	}
 
 
-	public function redirect($redir) {
+	public function redirect($redir, $s) {
+
+		$_SESSION["redir"] = $s;
 
 		header("location: {$this->baseurl}{$redir}");
 

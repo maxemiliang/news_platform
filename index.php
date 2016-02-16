@@ -64,7 +64,7 @@ $app->post("/post/add", function() use ($app, $posts, $login){
 });
 
 
-$app->get("/login", function () use ($app, $login){
+$app->post("/login", function () use ($app, $login){
 
 });
 

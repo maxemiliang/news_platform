@@ -37,14 +37,14 @@ class Posts extends Login {
 
 			$sth->execute($post);
 
-		} else {
+			$this->redirect("/post");
 
-			echo "User most be logged in!";
-			http_response_code(403);
+		} else {
+			
+			$this->redirect("/post", "Du måste vara inloggad för att lägga till en post");
 
 		}
 
-		$this->redirect("/post");
 
 	}
 
