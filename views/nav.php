@@ -16,6 +16,10 @@
        <!-- <li><a href="news">About</a></li>
             <li><a href="#contact">Contact</a></li> -->
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="<?php echo $base ?>/post">Lägg till en ny post</a></li>
+            <li><a href="<?php echo $base ?>/login">Logga In</a></li>
+          </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>

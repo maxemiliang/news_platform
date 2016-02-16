@@ -12,8 +12,9 @@ include "head.php";
 
 		<p class="lead"><?php echo $v[0]['text']; ?></p>
 
-		<h6>Postat av: <?php echo $v[0]['username']." på ".$v[0]['date'] ?><h6>
+		<h6>Postat av: <?php echo $v[0]['username']." och publicerades: ".$v[0]['date'] ?><h6>
 
 		<p><a class='btn btn-primary btn-lg' href='<?php echo $base ?>/news' role='button'>Tillbaka</a></p>
+		
 	</div>
 </div>

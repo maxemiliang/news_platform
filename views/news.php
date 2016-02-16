@@ -16,7 +16,7 @@ include "head.php";
 
         <h1><?php echo $row['title'] ?></h1>
 
-        <h6>Postat av: <?php echo $row['username']." på ".$row['date'] ?><h6>
+        <h6>Postat av: <?php echo $row['username']." och publicerades: ".$row['date'] ?><h6>
         <br>
 
         <p>
@@ -24,7 +24,7 @@ include "head.php";
             if (strlen($row['text']) >= 50) {
                 echo substr($row['text'], 0, 49)."...";
             } else {
-
+                echo $row['text'];
             } 
         ?>
         </p>
