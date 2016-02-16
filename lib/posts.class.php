@@ -6,13 +6,14 @@
 This is the class that handles the posts like getting them and adding them
 
 @DEPENDENCIES:
-------------------
+----------------------
 -login.class.php;-
-------------------
+-Controller.class.php;-
+----------------------
 
 */
 
-class Posts {
+class Posts extends Login {
 
 	public $posts;
 	protected $db;
