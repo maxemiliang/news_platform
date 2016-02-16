@@ -7,6 +7,8 @@ require "lib/db.php";
 
 $app = new Rout();
 
+$login = new Login();
+
 $posts = new Posts();
 $posts->setDb($db);
 
@@ -36,3 +38,18 @@ $app->get("/post/:id", function($id) use($app, $posts) {
     $app->render("article.php", $r);
 
 });
+
+$app->post("/add/post", function() use ($app, $posts, $login){
+
+});
+
+
+/* FOR TESTING PURPOSES
+
+$app->get("/news/redir", function() use ($app){
+
+	$app->redirect("/news/news");
+
+});
+
+*/

@@ -14,6 +14,8 @@ This is the login controller, which suprise suprise, handles logins
 
 Class Login extends Rout {
 
-	
+	public function isLoggedIn() {
+
+	}
 
 }

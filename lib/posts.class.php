@@ -25,9 +25,9 @@ class Posts extends Login {
 	}
 
 
-	public function addPosts() {
+	public function addPosts($) {
 
-		// to come :D
+		
 
 	}
 

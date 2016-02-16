@@ -26,6 +26,13 @@ class Rout {
 	}
 
 
+	public function redirect($redir) {
+
+		header("location: {$redir}");
+
+	}
+
+
 	public function render($file) {
 
 		$v = [];
@@ -49,31 +56,70 @@ class Rout {
 
 	public function get($req, $f) {
 
-		global $pReq;
+		if($_SERVER["REQUEST_METHOD"] === "GET") {
 
-		$params = $req;
+			global $pReq;
 
-		$aReq = $_SERVER["REQUEST_URI"];
+			$params = $req;
 
-		if (strpos($params, ':') !== false) { // checking for params
+			$aReq = $_SERVER["REQUEST_URI"];
 
-			$params = substr($aReq, (strpos($aReq, "/", strlen($this->baseurl)+1) + 1));
+			if (strpos($params, ':') !== false) { // checking for params
 
-			$pReq = explode(":", $req);
+				$params = substr($aReq, (strpos($aReq, "/", strlen($this->baseurl)+1) + 1));
+
+				$pReq = explode(":", $req);
+
+			} else {
+
+				$params = '';
+
+			}
+
+			$curl = $this->baseurl.$req;
+
+			if($aReq === $curl) {
+
+				return $f();
+
+			} else if ($aReq === $this->baseurl.$pReq[0].$params) {
+
+				return $f($params);
+
+			} else {
+
+				/*$this->error(404);*/
+
+			}
 
 		} else {
-
-			$params = '';
 
 		}
 
-		$curl = $this->baseurl.$req;
-		if($aReq == $curl) {
-			return $f();
-		} else if ($aReq == $this->baseurl.$pReq[0].$params) {
-			return $f($params);
+	}
+
+
+	public function post($req, $f) {
+		
+		if($_SERVER["REQUEST_METHOD"] === "POST") {
+
+			$aReq = $_SERVER["REQUEST_URI"];
+
+			$curl = $this->baseurl.$req;
+
+			if($aReq === $curl) {
+
+				return $f();
+
+			} else {
+
+				/*$this->error(404);*/
+
+			}
+
+
 		} else {
-			/*$this->error(404);*/
+
 		}
 
 	}
