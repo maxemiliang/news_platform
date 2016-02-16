@@ -12,6 +12,8 @@ include "head.php";
 
         <div class='jumbotron'>
 
+        <img src="img/<?php echo $row['img'] ?>" class="img-responsive img-rounded" alt="Image">
+
         <h1><?php echo $row['title'] ?></h1>
 
         <h6>Postat av: <?php echo $row['username']." på ".$row['date'] ?><h6>
