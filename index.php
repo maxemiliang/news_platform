@@ -5,14 +5,14 @@ require "lib/main.php";
 // Database connection
 require "lib/db.php";
 
-$app = new Rout();
-$app->setDb($db);
+$app = new Rout($db);
+/*$app->setDb($db);*/
 
-$login = new Login();
+$login = new Login($db);
 
 $login->createUser("admin", "admin", 999); // create a default admin
 
-$posts = new Posts();
+$posts = new Posts($db);
 $posts->setDb($db);
 
 

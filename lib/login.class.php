@@ -42,9 +42,9 @@ Class Login extends Rout {
 
 		$q = $this->db->prepare("SELECT * FROM users WHERE username=?;");
 
-		$r = $q->execute(array($username));
+		$r = $q->execute(array($username))->fetchAll();
 
-		if( $r->fetchColumn() > 0 ) {
+		if( count($v) > 0 ) {
 
 			$password = password_hash($password, PASSWORD_DEFAULT); //prepare password
 

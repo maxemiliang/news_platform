@@ -20,6 +20,12 @@ class Rout {
 
 	public $db;
 
+	public function __construct($db) {
+
+		$this->db = $db;
+
+	}
+
 	public function setDb($db) {
 
 		$this->db = $db;
