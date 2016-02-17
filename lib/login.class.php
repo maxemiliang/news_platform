@@ -39,7 +39,7 @@ Class Login extends Rout {
 	}
 
 	public function createUser($username, $password, $priv) {
-
+		/*
 		$q = $this->db->prepare("SELECT * FROM users WHERE username=?;");
 
 		$r = $q->execute(array($username))->fetchAll();
@@ -57,7 +57,7 @@ Class Login extends Rout {
 			return false;
 
 		}
-
+		*/
 	}
 
 }
