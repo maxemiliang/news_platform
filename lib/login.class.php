@@ -55,7 +55,7 @@ Class Login extends Rout
 
 			$password = password_hash($password, PASSWORD_DEFAULT); //prepare password
 
-			$sth = $this->db->prepare("INSERT INTO users (username, password, privileges) VALUES (?, ?, ?);");
+			$sth = $this->db->prepare("INSERT INTO users (username, password, privileges) VALUES (?, ?, ?)");
 
 			if($sth->execute(array($username, $password, $priv))) {
 

@@ -29,7 +29,8 @@ class Posts extends Login
 
 
 	public function addPost($post)
-	{ // $post should be an array consisting of title, text, img and userID
+	{
+	// $post should be an array consisting of title, text, img and userID
 
 		if ($this->isLoggedIn()) {
 
