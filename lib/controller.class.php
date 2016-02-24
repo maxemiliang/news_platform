@@ -12,7 +12,8 @@ This is the main router which handles the get requests on main and gives the cor
 
 */
 
-class Rout {
+class Rout
+{
 
 	public $pReq;
 
@@ -20,26 +21,30 @@ class Rout {
 
 	public $db;
 
-	public function __construct($db) {
+	public function __construct($db)
+	{
 
 		$this->db = $db;
 
 	}
 
-	public function setDb($db) {
+	public function setDb($db)
+	{
 
 		$this->db = $db;
 
 	}
 
-	public function error($e) {
+	public function error($e)
+	{
 
 		echo "Error: ".$e;
 
 	}
 
 
-	public function redirect($redir, $s) {
+	public function redirect($redir, $s)
+	{
 
 		$_SESSION["redir"] = $s;
 
@@ -48,7 +53,8 @@ class Rout {
 	}
 
 
-	public function render($file) {
+	public function render($file)
+	{
 
 		$v = [];
 
@@ -69,7 +75,8 @@ class Rout {
 	}
 
 
-	public function get($req, $f) {
+	public function get($req, $f)
+	{
 
 		if($_SERVER["REQUEST_METHOD"] === "GET") {
 
@@ -114,7 +121,8 @@ class Rout {
 	}
 
 
-	public function post($req, $f) {
+	public function post($req, $f)
+	{
 
 		if($_SERVER["REQUEST_METHOD"] === "POST") {
 

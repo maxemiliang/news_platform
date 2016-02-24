@@ -12,9 +12,11 @@ This is the login controller, which suprise suprise, handles logins
 
 */
 
-Class Login extends Rout {
+Class Login extends Rout
+{
 
-	public function isLoggedIn() {
+	public function isLoggedIn()
+	{
 
 		if (isset($_SESSION["userID"])) {
 			return true;
@@ -25,39 +27,51 @@ Class Login extends Rout {
 	}
 
 
-	public function getUserId() {
+	public function getUserId()
+	{
 
 		return 1;
 
 	}
 
 
-	public function tryLogin() {
+	public function tryLogin()
+	{
 
 
 
 	}
 
-	public function createUser($username, $password, $priv) {
-		/*
+	public function createUser($username, $password, $priv)
+	{
+
 		$q = $this->db->prepare("SELECT * FROM users WHERE username=?;");
 
-		$r = $q->execute(array($username))->fetchAll();
+		$r = $q->execute(array($username));
 
-		if( count($v) > 0 ) {
+		$v = $q->fetchAll();
+
+		if (count($v) > 0) {
 
 			$password = password_hash($password, PASSWORD_DEFAULT); //prepare password
 
 			$sth = $this->db->prepare("INSERT INTO users (username, password, privileges) VALUES (?, ?, ?);");
 
-			$sth->execute(array($username, $password, $priv));
+			if($sth->execute(array($username, $password, $priv))) {
+
+				return true;
+
+			} else {
+
+				return false;
+
+			}
 
 		} else {
 
 			return false;
 
 		}
-		*/
 	}
 
 }

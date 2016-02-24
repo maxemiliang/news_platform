@@ -13,7 +13,8 @@ This is the class that handles the posts like getting them and adding them
 
 */
 
-class Posts extends Login {
+class Posts extends Login
+{
 
 	public $posts;
 	/* Unnecesary but wont delete it just yet!
@@ -27,7 +28,8 @@ class Posts extends Login {
 	*/
 
 
-	public function addPost($post) { // $post should be an array consisting of title, text, img and userID
+	public function addPost($post)
+	{ // $post should be an array consisting of title, text, img and userID
 
 		if ($this->isLoggedIn()) {
 
@@ -40,7 +42,7 @@ class Posts extends Login {
 			$this->redirect("/post");
 
 		} else {
-			
+
 			$this->redirect("/post", "Du måste vara inloggad för att lägga till en post");
 
 		}
@@ -49,14 +51,16 @@ class Posts extends Login {
 	}
 
 
-	public function getPosts(){
+	public function getPosts()
+	{
 
 		return $this->db->query("SELECT articles.*, users.username FROM articles LEFT JOIN users ON users.uID=articles.userID;", PDO::FETCH_ASSOC);
 
 	}
 
 
-	public function getPost($id) {
+	public function getPost($id)
+	{
 
 		$sql = "SELECT articles.*, users.username FROM articles LEFT JOIN users ON users.uID = articles.userID WHERE articles.aID = ? LIMIT 1;";
 

@@ -10,20 +10,30 @@ $app = new Rout($db);
 
 $login = new Login($db);
 
-$login->createUser("admin", "admin", 999); // create a default admin
+if($login->createUser("admin", "admin", 999)) {
+
+    echo "Cool! :D";
+
+} else {
+
+    echo "not so cool";
+
+}
 
 $posts = new Posts($db);
 $posts->setDb($db);
 
 
-$app->get("/", function() use($app){
+$app->get("/", function() use($app)
+{
 
 	$app->render("home.php");
 
 });
 
 
-$app->get("/news", function() use($app, $posts){
+$app->get("/news", function() use($app, $posts)
+{
 
     $post = [];
 
@@ -36,7 +46,8 @@ $app->get("/news", function() use($app, $posts){
 });
 
 
-$app->get("/post/:id", function($id) use($app, $posts) {
+$app->get("/post/:id", function($id) use($app, $posts)
+{
 
     $r = $posts->getPost($id);
 
@@ -45,14 +56,16 @@ $app->get("/post/:id", function($id) use($app, $posts) {
 });
 
 
-$app->get("/post", function() use ($app, $login) {
+$app->get("/post", function() use ($app, $login)
+{
 
 	$app->render("add.php");
 
 });
 
 
-$app->post("/post/add", function() use ($app, $posts, $login){
+$app->post("/post/add", function() use ($app, $posts, $login)
+{
 
 	$cont = [];
 
@@ -66,14 +79,16 @@ $app->post("/post/add", function() use ($app, $posts, $login){
 });
 
 
-$app->post("/login", function () use ($app, $login){
+$app->post("/login", function () use ($app, $login)
+{
 
 });
 
 
 /* FOR TESTING PURPOSES
 
-$app->get("/news/redir", function() use ($app){
+$app->get("/news/redir", function() use ($app)
+{
 
 	$app->redirect("/news");
 
