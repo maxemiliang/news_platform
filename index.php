@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors',1); // DEV ENV
+
 require "lib/main.php";
 
 // Database connection

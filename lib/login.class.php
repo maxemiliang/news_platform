@@ -53,7 +53,7 @@ Class Login extends Rout
 
 		if (count($v) > 0) {
 
-			$password = password_hash($password, PASSWORD_DEFAULT); //prepare password
+			$password = password_hash($password, PASSWORD_DEFAULT); //prepare passwordtea
 
 			$sth = $this->db->prepare("INSERT INTO users (username, password, privileges) VALUES (?, ?, ?)");
 
