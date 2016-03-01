@@ -103,7 +103,7 @@ class Posts extends Login
 	public function delPost($id) 
 	{
 
-		$sql = "DELETE FROM articles where aID=?;";
+		$sql = "DELETE FROM articles where aID = ?;";
 
 		$sth = $this->db->prepare($sql);	
 
