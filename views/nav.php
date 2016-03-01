@@ -17,8 +17,11 @@
             <li><a href="#contact">Contact</a></li> -->
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <?php if (isset($_SESSION["userID"])) { ?><li><a href="<?php echo $base ?>/post">Lägg till en ny post</a></li> <?php } else { ?>
-            <li><form class="navbar-form">
+            <?php if (isset($_SESSION["userID"])) { ?>
+              <li><a href="<?php echo $base ?>/post">Kontrolpanelen</a></li>
+              <li><a href="<?php echo $base ?>/logout">Logga ut!</a></li> 
+            <?php } else { ?>
+            <li><form class="navbar-form" action="<?php echo $base ?>/login" method="POST">
               <div class="form-group">
                 <label class="sr-only" for="username">Användarnamn</label>
                 <input type="text" class="form-control" name="username" id="username" placeholder="Användarnamn">

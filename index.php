@@ -13,15 +13,7 @@ $app = new Rout($db);
 
 $login = new Login($db);
 
-if($login->createUser("admin", "admin", 999)) {
-
-    echo "Cool! :D";
-
-} else {
-
-    echo "not so cool";
-
-}
+$login->createUser("admin", "admin", 999);
 
 $posts = new Posts($db);
 $posts->setDb($db);
@@ -84,6 +76,32 @@ $app->post("/post/add", function() use ($app, $posts, $login)
 
 $app->post("/login", function () use ($app, $login)
 {
+
+	if ($login->tryLogin($_POST)) {
+
+		$app->redirect("/", "");
+
+	} else {
+
+		$app->redirect("/", "Användarnamnet eller lösenordet är fel!");
+
+	}
+
+});
+
+
+$app->get("/logout", function () use ($app, $login)
+{
+
+	if ($login->tryLogout()) {
+
+		$app->redirect("/", "");
+
+	} else {
+
+		$app->redirect("/", "");
+
+	}
 
 });
 

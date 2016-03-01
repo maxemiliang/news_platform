@@ -55,7 +55,7 @@ class Posts extends Login
 	public function getPosts()
 	{
 
-		return $this->db->query("SELECT articles.*, users.username FROM articles LEFT JOIN users ON users.uID=articles.userID;", PDO::FETCH_ASSOC);
+		return $this->db->query("SELECT articles.*, users.username FROM articles LEFT JOIN users ON users.uID=articles.userID ORDER BY date DESC;", PDO::FETCH_ASSOC);
 
 	}
 
