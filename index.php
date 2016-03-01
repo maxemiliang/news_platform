@@ -51,10 +51,39 @@ $app->get("/post/:id", function($id) use($app, $posts)
 });
 
 
-$app->get("/post", function() use ($app, $login)
+$app->get("/post", function() use ($app, $login, $posts)
 {
 
-	$app->render("add.php");
+	$post = [];
+
+    foreach($posts->getPosts() as $row) {
+        $post[] = $row;
+    }
+
+	$app->render("add.php", $post);
+
+});
+
+$app->get("/del/:id", function($id) use ($app, $login, $posts)
+{
+
+	if ($login->isLoggedIn()) {
+
+		if ($posts->delPost($id)) {
+
+			$app->redirect("/post", "Artikeln raderad!");
+
+		} else {
+
+			$app->redirect("/post", "Problem med raderningen!");
+
+		}
+
+	} else {
+
+		$app->redirect("/", "");
+
+	}
 
 });
 

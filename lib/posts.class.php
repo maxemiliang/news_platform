@@ -34,19 +34,44 @@ class Posts extends Login
 
 		if ($this->isLoggedIn()) {
 
-			$sql = "INSERT INTO articles (title, text, img, userID, date) VALUES (?, ?, ?, ?, NOW());";
+			if (exif_imagetype($_FILES["img"]["tmp_name"]) != false) {
 
-			$sth = $this->db->prepare($sql);
+				$filename = tempnam('img/', 'img');
+	    		unlink($filename);
+	    		$period_position = strrpos($filename, ".");
+	   			$filename = substr($filename, 0, $period_position);
+	    		$file = substr($filename, -7);
+	    		$post[2] = $file;
 
-			$sth->execute($post);
+	    		if (move_uploaded_file($_FILES['img']['tmp_name'], $filename)) {
 
-			$this->redirect("/post");
+					$sql = "INSERT INTO articles (title, text, img, userID, date) VALUES (?, ?, ?, ?, NOW());";
+
+					$sth = $this->db->prepare($sql);
+
+					$sth->execute($post);
+
+					$this->redirect("/post");
+
+				} else {
+
+					$this->redirect("/post", "Fel i uppladningen av filen!");
+
+				}
+
+			} else {
+
+				$this->redirect("/post", "Filen måste vara ett bildformat!");
+
+			}
 
 		} else {
 
 			$this->redirect("/post", "Du måste vara inloggad för att lägga till en post");
 
 		}
+
+		print_r($_FILES);
 
 
 	}
@@ -72,6 +97,26 @@ class Posts extends Login
 		$result = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 		return $result;
+	}
+
+
+	public function delPost($id) 
+	{
+
+		$sql = "DELETE FROM articles where aID=?;";
+
+		$sth = $this->db->prepare($sql);	
+
+		if ($sth->execute(array($id))) {
+
+			return true;
+
+		} else {
+
+			return false;	
+
+		}
+
 	}
 
 }
