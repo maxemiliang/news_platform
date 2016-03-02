@@ -103,19 +103,17 @@ class Posts extends Login
 	public function delPost($id) 
 	{
 
-		$sql = "DELETE FROM articles where aID = ?;";
+		$sql = "DELETE FROM articles WHERE aID=?";
 
-		$sth = $this->db->prepare($sql);	
+		$sth = $this->db->prepare($sql);
 
-		if ($sth->execute(array($id))) {
+		$sth->bindParam(1, $id, PDO::PARAM_INT);
 
-			return true;
+		$sth->execute();
 
-		} else {
+		$run = $sth->rowCount();
 
-			return false;	
-
-		}
+		return $run;
 
 	}
 

@@ -64,7 +64,7 @@ if (isset($_SESSION["redir"])) {
 	        </p></td>
 
 	        <td><p><a class='btn btn-primary btn-lg' href='post/<?php echo $row['aID']?>' role='button'>Läs hela</a></p></td>
-	        <td><p><a class='btn btn-danger btn-lg' href='del/post/<?php echo $row['aID']?>' role='button'>Radera</a></p></td>
+	        <td><p><a class='btn btn-danger btn-lg' href='del/<?php echo $row['aID']?>' role='button'>Radera</a></p></td>
 
 	    </tr>
 

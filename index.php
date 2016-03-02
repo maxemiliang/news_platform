@@ -69,13 +69,15 @@ $app->get("/del/:id", function($id) use ($app, $login, $posts)
 
 	if ($login->isLoggedIn()) {
 
-		if ($posts->delPost($id)) {
+		$res = $posts->delPost($id);
 
-			$app->redirect("/post", "Artikeln raderad!");
+		if ($res > 0) {
+
+			$app->redirect("/post", $res." Artikel raderad");
 
 		} else {
 
-			$app->redirect("/post", "Problem med raderningen!");
+			$app->redirect("/post", "Fel i raderingen!");
 
 		}
 
