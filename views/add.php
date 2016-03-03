@@ -12,14 +12,14 @@ if (isset($_SESSION["redir"])) {
 }
 
 ?>
-	<form action="<?php echo $base ?>/post/add" method="post" enctype= "multipart/form-data">
+	<form id="post_art" action="<?php echo $base ?>/post/add" method="post" enctype= "multipart/form-data">
 	  <div class="form-group" >
 	    <label for="InputTitle">Titeln</label>
 	    <input type="text" name="title" class="form-control" id="InputTitle" placeholder="Titeln" required>
 	  </div>
 	  <div class="form-group">
 	    <label for="InputText">Texten</label>
-	    <input type="text" name="text" class="form-control" id="InputText" placeholder="Text" required>
+	    <textarea form="post_art" name="text" class="form-control" id="InputText" placeholder="Texten"></textarea>
 	  </div>
 	  <div class="form-group">
 	    <label for="InputFile">Bilden</label>
@@ -51,7 +51,7 @@ if (isset($_SESSION["redir"])) {
 
 	        <td><p><?php echo $row['title'] ?></p></td>
 
-	        <td><h6>Postat av: <?php echo $row['username']." och publicerades: ".$row['date'] ?></h6></td>
+	        <td><p>Postat av: <?php echo $row['username']." och publicerades: ".$row['date'] ?></p></td>
 
 	        <td><p>
 	        <?php 
