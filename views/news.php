@@ -28,6 +28,7 @@ include "head.php";
             } 
         ?>
         </p>
+        </p>
 
         <p><a class='btn btn-primary btn-lg' href='post/<?php echo $row['aID']?>' role='button'>Läs mera</a></p>
 
