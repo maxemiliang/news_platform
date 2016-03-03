@@ -93,23 +93,29 @@ Class Login extends Rout
 
 		if (count($v) <= 0) {
 
-			$password = password_hash($password, PASSWORD_DEFAULT); //prepare password
+			if (strlen($password) >= 8 && strlen($username) >= 5) {
+				$password = password_hash($password, PASSWORD_DEFAULT); //prepare password
 
-			$sth = $this->db->prepare("INSERT INTO users (username, password, privileges) VALUES (?, ?, ?);");
+				$sth = $this->db->prepare("INSERT INTO users (username, password, privileges) VALUES (?, ?, ?);");
 
-			if($sth->execute(array($username, $password, $priv))) {
+				if($sth->execute(array($username, $password, $priv))) {
 
-				return true;
+					return 1; // added
 
+				} else {
+
+					return 3; // error with execute
+
+				}
 			} else {
 
-				return false;
+				return 2; //  error with length
 
 			}
 
 		} else {
 
-			return false;
+			return 4; // error user found 
 
 		}
 	}
